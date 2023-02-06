@@ -14,7 +14,7 @@ app.get('/yt-caption', async (req, res) => {
         lang: 'en' // default: `en`
     }).then(function (captions) {
         let text = []
-        captions.forEach(caption => {
+        captions.forEach((caption, key) => {
             let line = caption.text.toString().replace(/ *\[[^)]*\] */g, "")
             if (line) {
                 text.push(line)
